@@ -1,81 +1,68 @@
 .header {
-    text-align: center;
-    margin-bottom: 8px;
-    color: #ffffff;
-    position: relative;
-    width: 100%;
-  }
+  text-align: center;
+  margin-bottom: 8px;
+  color: #EAEAFB;
+  position: relative;
+  width: 100%;
+}
 
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 4px 0 6px;
+  padding: 0;
+  color: #EAEAFB;
+}
+
+.fish-image {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: -6px auto 8px;
+  position: relative;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+  animation: float 6s ease-in-out infinite;
+}
+
+.logo {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 2px auto 6px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .title {
-    font-size: 44px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 4px 0 6px;
+    font-size: 32px;
     padding: 0;
-    background: linear-gradient(45deg, #ffffff, #a0a0a0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
+}
 
-  .fish-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    display: block;
-    margin: -6px auto 8px;
-    position: relative;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-    animation: float 6s ease-in-out infinite;
+@media (max-width: 480px) {
+  .title {
+    font-size: 26px;
+    padding: 0;
   }
-
-  .fish {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 20px 0;
-  }
-
+  .fish-image,
   .logo {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 2px auto 6px;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    max-width: 100%;
+    margin: 6px 0;
   }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  /* Media queries for responsive design */
-  @media (max-width: 768px) {
-    .title {
-      font-size: 32px;
-      padding: 0;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .title {
-      font-size: 26px;
-      padding: 0;
-    }
-    
-    .fish-image,
-    .fish,
-    .logo {
-      max-width: 100%;
-      margin: 6px 0;
-    }
-  }
+}
