@@ -1,0 +1,46 @@
+# Frontend values for tshawytscha-ai
+
+name: tshawytscha-ai-front
+
+replicaCount: 1
+
+image:
+  repository: registry.luxembourg-2.cloud.gcore.dev/59508-197526-76-infra/tschawytscha-ai-front
+  tag: "v0.0.14-dev7"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: registry-secret
+
+# Service configuration
+service:
+  port: 80
+  targetPort: 3000
+
+# HTTPRoute configuration
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: envoy-gateway
+      namespace: envoy-gateway-system
+  hostnames:
+    - tshawytscha.ai
+  # Backend service to also include in routing (for /api path)
+  backendService:
+    name: tshawytscha-ai-back
+    port: 80
+
+# TLS certificate (cert-manager)
+tls:
+  enabled: true
+  secretName: tshawytscha-ai-tls
+  issuer: letsencrypt-prod
+
+# Resources
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
