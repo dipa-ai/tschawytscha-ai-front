@@ -12,8 +12,8 @@ This is the client-side SPA that communicates with a separate backend service (`
 ## Getting Started
 
 ```bash
-git clone https://github.com/dipa-ai/tschawytscha-ai-front.git
-cd tschawytscha-ai-front
+git clone https://github.com/dipa-ai/tshawytscha-ai-front.git
+cd tshawytscha-ai-front
 npm install
 npm run dev
 ```
@@ -54,8 +54,8 @@ Each component has co-located `.jsx` and `.css` files.
 
 ```bash
 # Build Docker image locally
-docker build -t tschawytscha-ai-front .
-docker run -p 8080:80 tschawytscha-ai-front
+docker build -t tshawytscha-ai-front .
+docker run -p 8080:80 tshawytscha-ai-front
 ```
 
 ## License

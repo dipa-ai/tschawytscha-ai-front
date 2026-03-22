@@ -1,11 +1,11 @@
-# Frontend values for tschawytscha-ai
+# Frontend values for tshawytscha-ai
 
-name: tschawytscha-ai-front
+name: tshawytscha-ai-front
 
 replicaCount: 1
 
 image:
-  repository: registry.luxembourg-2.cloud.gcore.dev/59508-197526-76-infra/tschawytscha-ai-front
+  repository: registry.luxembourg-2.cloud.gcore.dev/59508-197526-76-infra/tshawytscha-ai-front
   tag: "v0.0.14-dev7"
   pullPolicy: IfNotPresent
 
@@ -27,7 +27,7 @@ httpRoute:
     - tshawytscha.ai
   # Backend service to also include in routing (for /api path)
   backendService:
-    name: tschawytscha-ai-back
+    name: tshawytscha-ai-back
     port: 80
 
 
