@@ -1,5 +1,5 @@
 # Build stage
-FROM node:22-alpine as build
+FROM node:22.14.0-alpine as build
 
 # Set working directory
 WORKDIR /app
@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies strictly from package-lock.json for a reproducible build
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -17,19 +17,19 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:22-alpine
+FROM nginx:1.25.4-alpine
 
-# Install serve
-RUN npm install -g serve
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
 
-# Set working directory
-WORKDIR /app
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy ONLY the built assets from build stage
-COPY --from=build /app/dist /app
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 3000 (serve's default port)
-EXPOSE 3000
+# Expose port 80
+EXPOSE 80
 
-# Start serve with absolute path
-CMD ["serve", "-s", "/app", "-l", "tcp://0.0.0.0:3000"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
