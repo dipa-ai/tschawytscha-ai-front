@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Values.name }}
   labels:
-    {{- include "tshawytscha.labels" . | nindent 4 }}
+    {{- include "tschawytscha.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   ports:
@@ -11,4 +11,4 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
   selector:
-    {{- include "tshawytscha.selectorLabels" . | nindent 4 }}
+    {{- include "tschawytscha.selectorLabels" . | nindent 4 }}

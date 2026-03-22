@@ -1,6 +1,6 @@
-# Frontend values for tshawytscha-ai
+# Frontend values for tschawytscha-ai
 
-name: tshawytscha-ai-front
+name: tschawytscha-ai-front
 
 replicaCount: 1
 
@@ -27,14 +27,9 @@ httpRoute:
     - tshawytscha.ai
   # Backend service to also include in routing (for /api path)
   backendService:
-    name: tshawytscha-ai-back
+    name: tschawytscha-ai-back
     port: 80
 
-# TLS certificate (cert-manager)
-tls:
-  enabled: true
-  secretName: tshawytscha-ai-tls
-  issuer: letsencrypt-prod
 
 # Resources
 resources:

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: tshawytscha-ai-front
-description: Frontend for tshawytscha.ai AI platform
+name: tschawytscha-ai-front
+description: Frontend for tschawytscha.ai AI platform
 type: application
 version: 0.1.0
 appVersion: "0.0.14"
